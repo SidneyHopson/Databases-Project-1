@@ -19,3 +19,14 @@ D:\Temp\TeamProject1-Sample2.0\TeamProject1\obj\Debug\netcoreapp2.0\TeamProject1
 D:\Temp\TeamProject1-Sample2.0\TeamProject1\obj\Debug\netcoreapp2.0\TeamProject1.AssemblyInfo.cs
 D:\Temp\TeamProject1-Sample2.0\TeamProject1\obj\Debug\netcoreapp2.0\TeamProject1.dll
 D:\Temp\TeamProject1-Sample2.0\TeamProject1\obj\Debug\netcoreapp2.0\TeamProject1.pdb
+C:\Users\alpss\Documents\GitHub\Databases-Project-1\TeamProject1-PartialSample2.0 (1)\TeamProject1-Sample2.0\TeamProject1\bin\Debug\netcoreapp2.0\TeamProject1.deps.json
+C:\Users\alpss\Documents\GitHub\Databases-Project-1\TeamProject1-PartialSample2.0 (1)\TeamProject1-Sample2.0\TeamProject1\bin\Debug\netcoreapp2.0\TeamProject1.runtimeconfig.json
+C:\Users\alpss\Documents\GitHub\Databases-Project-1\TeamProject1-PartialSample2.0 (1)\TeamProject1-Sample2.0\TeamProject1\bin\Debug\netcoreapp2.0\TeamProject1.runtimeconfig.dev.json
+C:\Users\alpss\Documents\GitHub\Databases-Project-1\TeamProject1-PartialSample2.0 (1)\TeamProject1-Sample2.0\TeamProject1\bin\Debug\netcoreapp2.0\TeamProject1.dll
+C:\Users\alpss\Documents\GitHub\Databases-Project-1\TeamProject1-PartialSample2.0 (1)\TeamProject1-Sample2.0\TeamProject1\bin\Debug\netcoreapp2.0\TeamProject1.pdb
+C:\Users\alpss\Documents\GitHub\Databases-Project-1\TeamProject1-PartialSample2.0 (1)\TeamProject1-Sample2.0\TeamProject1\obj\Debug\netcoreapp2.0\TeamProject1.csprojAssemblyReference.cache
+C:\Users\alpss\Documents\GitHub\Databases-Project-1\TeamProject1-PartialSample2.0 (1)\TeamProject1-Sample2.0\TeamProject1\obj\Debug\netcoreapp2.0\TeamProject1.csproj.CoreCompileInputs.cache
+C:\Users\alpss\Documents\GitHub\Databases-Project-1\TeamProject1-PartialSample2.0 (1)\TeamProject1-Sample2.0\TeamProject1\obj\Debug\netcoreapp2.0\TeamProject1.AssemblyInfoInputs.cache
+C:\Users\alpss\Documents\GitHub\Databases-Project-1\TeamProject1-PartialSample2.0 (1)\TeamProject1-Sample2.0\TeamProject1\obj\Debug\netcoreapp2.0\TeamProject1.AssemblyInfo.cs
+C:\Users\alpss\Documents\GitHub\Databases-Project-1\TeamProject1-PartialSample2.0 (1)\TeamProject1-Sample2.0\TeamProject1\obj\Debug\netcoreapp2.0\TeamProject1.dll
+C:\Users\alpss\Documents\GitHub\Databases-Project-1\TeamProject1-PartialSample2.0 (1)\TeamProject1-Sample2.0\TeamProject1\obj\Debug\netcoreapp2.0\TeamProject1.pdb

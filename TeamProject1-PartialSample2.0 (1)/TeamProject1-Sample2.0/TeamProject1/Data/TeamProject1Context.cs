@@ -27,5 +27,17 @@ namespace TeamProject1.Models
         public DbSet<TeamProject1.Models.MyRecipe_Ingredient> MyRecipe_Ingredient { get; set; }
 
         public DbSet<TeamProject1.Models.MyRecipe> MyRecipe { get; set; }
+
+        public DbSet<TeamProject1.Models.Vegetable> Vegetable { get; set; }
+
+        public DbSet<TeamProject1.Models.Grain> Grain { get; set; }
+
+        public DbSet<TeamProject1.Models.Seasoning> Seasoning { get; set; }
+
+        public DbSet<TeamProject1.Models.Herbs> Herbs { get; set; }
+
+        public DbSet<TeamProject1.Models.Spices> Spices { get; set; }
+
+        public DbSet<TeamProject1.Models.MyRecipe_Seasoning> MyRecipe_Seasoning { get; set; }
     }
 }

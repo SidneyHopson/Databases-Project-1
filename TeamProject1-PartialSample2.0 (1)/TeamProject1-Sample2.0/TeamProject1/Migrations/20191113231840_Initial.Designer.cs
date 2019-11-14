@@ -11,8 +11,8 @@ using TeamProject1.Models;
 namespace TeamProject1.Migrations
 {
     [DbContext(typeof(TeamProject1Context))]
-    [Migration("20181024002839_initial")]
-    partial class initial
+    [Migration("20191113231840_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

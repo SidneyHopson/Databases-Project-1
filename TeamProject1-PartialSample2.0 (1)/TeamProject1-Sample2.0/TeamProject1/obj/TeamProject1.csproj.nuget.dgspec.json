@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\alpss\\Documents\\GitHub\\Databases-Project-1\\TeamProject1-PartialSample2.0 (1)\\TeamProject1-Sample2.0\\TeamProject1\\TeamProject1.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\alpss\\Documents\\GitHub\\Databases-Project-1\\TeamProject1-PartialSample2.0 (1)\\TeamProject1-Sample2.0\\TeamProject1\\TeamProject1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\alpss\\Documents\\GitHub\\Databases-Project-1\\TeamProject1-PartialSample2.0 (1)\\TeamProject1-Sample2.0\\TeamProject1\\TeamProject1.csproj",
+        "projectName": "TeamProject1",
+        "projectPath": "C:\\Users\\alpss\\Documents\\GitHub\\Databases-Project-1\\TeamProject1-PartialSample2.0 (1)\\TeamProject1-Sample2.0\\TeamProject1\\TeamProject1.csproj",
+        "packagesPath": "C:\\Users\\alpss\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alpss\\Documents\\GitHub\\Databases-Project-1\\TeamProject1-PartialSample2.0 (1)\\TeamProject1-Sample2.0\\TeamProject1\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\alpss\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.All": {
+              "target": "Package",
+              "version": "[2.0.9, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.0.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
