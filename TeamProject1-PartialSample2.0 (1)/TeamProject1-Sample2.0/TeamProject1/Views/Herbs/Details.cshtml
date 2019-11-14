@@ -11,16 +11,28 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Seasoning.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Seasoning.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Seasoning.Calories)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Seasoning.Calories)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Seasoning.Origin)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Seasoning.Origin)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.Hotness)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Hotness)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Seasoning)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Seasoning.Id)
         </dd>
     </dl>
 </div>

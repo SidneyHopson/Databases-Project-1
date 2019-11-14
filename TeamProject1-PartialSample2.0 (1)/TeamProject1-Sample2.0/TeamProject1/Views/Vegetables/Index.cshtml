@@ -27,12 +27,12 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Ingredient.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ingredient.Calories)
-            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ingredient.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ingredient.Calories)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Fiber)
             </td>

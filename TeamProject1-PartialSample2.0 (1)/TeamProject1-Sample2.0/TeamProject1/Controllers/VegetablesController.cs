@@ -148,8 +148,8 @@ namespace TeamProject1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var vegetable = await _context.Vegetable.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Vegetable.Remove(vegetable);
+            var ingredient = await _context.Ingredient.FindAsync(id);
+            _context.Ingredient.Remove(ingredient);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

@@ -13,8 +13,19 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <select asp-for="Id" class ="form-control" asp-items="ViewBag.Id"></select>
+                <label asp-for="Seasoning.Name" class="control-label"></label>
+                <input asp-for="Seasoning.Name" class="form-control" />
+                <span asp-validation-for="Seasoning.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seasoning.Calories" class="control-label"></label>
+                <input asp-for="Seasoning.Calories" class="form-control" />
+                <span asp-validation-for="Seasoning.Calories" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seasoning.Origin" class="control-label"></label>
+                <input asp-for="Seasoning.Origin" class="form-control" />
+                <span asp-validation-for="Seasoning.Origin" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Hotness" class="control-label"></label>

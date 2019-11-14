@@ -79,6 +79,7 @@ namespace TeamProject1.Controllers
             }
 
             var grain = await _context.Grain.SingleOrDefaultAsync(m => m.Id == id);
+            var ingredient = await _context.Ingredient.FindAsync(id);
             if (grain == null)
             {
                 return NotFound();
@@ -103,6 +104,8 @@ namespace TeamProject1.Controllers
             {
                 try
                 {
+                    ingredient.Id = id;
+                    _context.Ingredient.Update(ingredient);
                     _context.Update(grain);
                     await _context.SaveChangesAsync();
                 }
@@ -147,8 +150,8 @@ namespace TeamProject1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var grain = await _context.Grain.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Grain.Remove(grain);
+            var ingredient = await _context.Ingredient.FindAsync(id);
+            _context.Ingredient.Remove(ingredient);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
