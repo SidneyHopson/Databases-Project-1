@@ -31,19 +31,25 @@ namespace TeamProject1.Controllers
                            on m.Id equals n.R_id
                            join o in _context.Ingredient
                            on n.I_id equals o.Id
-                           orderby m.Name, o.Name
+                           join p in _context.MyRecipe_Seasoning
+                           on m.Id equals p.R_id
+                           join q in _context.Seasoning
+                           on p.S_id equals q.Id
+                           orderby m.Name, o.Name, q.Name
                            select new
                            {
                                MyRecipe = m,
-                               Element = o,
-                               n.Weight
+                               Ingred = o,
+                               InWeight = n.Weight,
+                               Season  = q,
+                               SeWeight = p.Weight
                            };
 
             if (!String.IsNullOrEmpty(id))
             {
                 recipes = recipes.Where(m => m.MyRecipe.Name.Contains(id));
             }
-            recipes = recipes.OrderBy(m => m.Element.Name).OrderBy(m => m.MyRecipe.Name);
+            recipes = recipes.OrderBy(m => m.Ingred.Name).OrderBy(m => m.MyRecipe.Name);
 
             var tmp = await recipes.ToListAsync();
             List<RecipeDetails> lrd = new List<RecipeDetails>();
@@ -53,21 +59,29 @@ namespace TeamProject1.Controllers
                 RecipeDetails rd = (lrd.Count > 0) ? lrd.ElementAt(lrd.Count - 1) : null;
                 if (rd != null && rd.MyRecipe.Id == rid)
                 {
-                    Ingredient_W cew = new Ingredient_W { Ingredient = item.Element, Weight = item.Weight };
+                    Ingredient_W cew = new Ingredient_W { Ingredient = item.Ingred, Weight = item.InWeight };
                     rd.I_common.Add(cew);
-                    rd.Total_calories += item.Element.Calories * item.Weight;
+                    rd.Total_calories += item.Ingred.Calories * item.InWeight;
+                    Seasoning_W sew = new Seasoning_W { Seasoning = item.Season, Weight = item.SeWeight };
+                    rd.S_common.Add(sew);
+                    rd.Total_calories += item.Season.Calories * item.SeWeight;
                 }
                 else
                 {
                     List<Ingredient_W> my_lce = new List<Ingredient_W>();
-                    Ingredient_W cew = new Ingredient_W { Ingredient = item.Element, Weight = item.Weight };
+                    Ingredient_W cew = new Ingredient_W { Ingredient = item.Ingred, Weight = item.InWeight };
                     my_lce.Add(cew);
+                    List<Seasoning_W> my_lse = new List<Seasoning_W>();
+                    Seasoning_W sew = new Seasoning_W { Seasoning = item.Season, Weight = item.SeWeight };
+                    my_lse.Add(sew);
                     rd = new RecipeDetails
                     {
                         MyRecipe = item.MyRecipe,
-                        I_common = my_lce
+                        I_common = my_lce,
+                        S_common = my_lse
                     };
-                    rd.Total_calories += item.Element.Calories * item.Weight;
+                    rd.Total_calories += item.Ingred.Calories * item.InWeight;
+                    rd.Total_calories += item.Season.Calories * item.SeWeight;
                     lrd.Add(rd);
                 }
             }
@@ -104,7 +118,7 @@ namespace TeamProject1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] MyRecipe myRecipe)
+        public async Task<IActionResult> Create([Bind("Id,Name")] MyRecipe myRecipe, [Bind("I_id")] MyRecipe_Ingredient ingredients, [Bind("S_id")] MyRecipe_Seasoning seasonings)
         {
             if (ModelState.IsValid)
             {

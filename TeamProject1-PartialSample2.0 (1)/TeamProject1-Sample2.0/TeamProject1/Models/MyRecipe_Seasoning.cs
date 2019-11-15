@@ -14,11 +14,11 @@ namespace TeamProject1.Models
         [Display(Name = "Recipe")]
         public int R_id { get; set; }
         public decimal Weight { get; set; }
-        [ForeignKey("Ingredient")]
-        [Display(Name = "Ingredient")]
-        public int I_id { get; set; }
+        [ForeignKey("Seasoning")]
+        [Display(Name = "Seasoning")]
+        public int S_id { get; set; }
 
-        public Ingredient Ingredient { get; set; }
+        public Seasoning Seasoning { get; set; }
         [Display(Name = "My Recipe")]
         public MyRecipe MyRecipe { get; set; }
     }

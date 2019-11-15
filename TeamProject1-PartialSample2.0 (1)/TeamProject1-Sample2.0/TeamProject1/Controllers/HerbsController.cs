@@ -56,10 +56,12 @@ namespace TeamProject1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Hotness")] Herbs herbs)
+        public async Task<IActionResult> Create([Bind("Name, Calories, Origin")] Seasoning seasoning, [Bind("Hotness")] Herbs herbs)
         {
             if (ModelState.IsValid)
             {
+                _context.Seasoning.Add(seasoning);
+                herbs.Id = seasoning.Id;
                 _context.Add(herbs);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -76,7 +78,8 @@ namespace TeamProject1.Controllers
                 return NotFound();
             }
 
-            var herbs = await _context.Herbs.SingleOrDefaultAsync(m => m.Id == id);
+            var herbs = await _context.Herbs.FindAsync(id);
+            var seasoning = await _context.Seasoning.FindAsync(id);
             if (herbs == null)
             {
                 return NotFound();
@@ -90,7 +93,7 @@ namespace TeamProject1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Hotness")] Herbs herbs)
+        public async Task<IActionResult> Edit(int id, [Bind("Name, Calories, Origin")] Seasoning seasoning, [Bind("Id,Hotness")] Herbs herbs)
         {
             if (id != herbs.Id)
             {
@@ -101,6 +104,8 @@ namespace TeamProject1.Controllers
             {
                 try
                 {
+                    seasoning.Id = id;
+                    _context.Seasoning.Update(seasoning);
                     _context.Update(herbs);
                     await _context.SaveChangesAsync();
                 }
@@ -145,8 +150,8 @@ namespace TeamProject1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var herbs = await _context.Herbs.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Herbs.Remove(herbs);
+            var seasoning = await _context.Seasoning.FindAsync(id);
+            _context.Seasoning.Remove(seasoning);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
