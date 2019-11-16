@@ -21,7 +21,7 @@ namespace TeamProject1.Controllers
         // GET: MyRecipe_Seasoning
         public async Task<IActionResult> Index()
         {
-            var teamProject1Context = _context.MyRecipe_Seasoning.Include(m => m.Ingredient).Include(m => m.MyRecipe);
+            var teamProject1Context = _context.MyRecipe_Seasoning.Include(m => m.Seasoning).Include(m => m.MyRecipe);
             return View(await teamProject1Context.ToListAsync());
         }
 
@@ -34,9 +34,9 @@ namespace TeamProject1.Controllers
             }
 
             var myRecipe_Seasoning = await _context.MyRecipe_Seasoning
-                .Include(m => m.Ingredient)
+                .Include(m => m.Seasoning)
                 .Include(m => m.MyRecipe)
-                .SingleOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (myRecipe_Seasoning == null)
             {
                 return NotFound();
@@ -48,8 +48,8 @@ namespace TeamProject1.Controllers
         // GET: MyRecipe_Seasoning/Create
         public IActionResult Create()
         {
-            ViewData["I_id"] = new SelectList(_context.Ingredient, "Id", "Id");
-            ViewData["R_id"] = new SelectList(_context.MyRecipe, "Id", "Id");
+            ViewData["S_id"] = new SelectList(_context.Seasoning, "Id", "Name");
+            ViewData["R_id"] = new SelectList(_context.MyRecipe, "Id", "Name");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace TeamProject1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,R_id,Weight,I_id")] MyRecipe_Seasoning myRecipe_Seasoning)
+        public async Task<IActionResult> Create([Bind("Id,R_id,S_id,Weight")] MyRecipe_Seasoning myRecipe_Seasoning)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace TeamProject1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["I_id"] = new SelectList(_context.Ingredient, "Id", "Id", myRecipe_Seasoning.I_id);
+            ViewData["S_id"] = new SelectList(_context.Seasoning, "Id", "Id", myRecipe_Seasoning.S_id);
             ViewData["R_id"] = new SelectList(_context.MyRecipe, "Id", "Id", myRecipe_Seasoning.R_id);
             return View(myRecipe_Seasoning);
         }
@@ -79,13 +79,13 @@ namespace TeamProject1.Controllers
                 return NotFound();
             }
 
-            var myRecipe_Seasoning = await _context.MyRecipe_Seasoning.SingleOrDefaultAsync(m => m.Id == id);
+            var myRecipe_Seasoning = await _context.MyRecipe_Seasoning.FindAsync(id);
             if (myRecipe_Seasoning == null)
             {
                 return NotFound();
             }
-            ViewData["I_id"] = new SelectList(_context.Ingredient, "Id", "Id", myRecipe_Seasoning.I_id);
-            ViewData["R_id"] = new SelectList(_context.MyRecipe, "Id", "Id", myRecipe_Seasoning.R_id);
+            ViewData["S_id"] = new SelectList(_context.Seasoning, "Id", "Name", myRecipe_Seasoning.S_id);
+            ViewData["R_id"] = new SelectList(_context.MyRecipe, "Id", "Name", myRecipe_Seasoning.R_id);
             return View(myRecipe_Seasoning);
         }
 
@@ -94,7 +94,7 @@ namespace TeamProject1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,R_id,Weight,I_id")] MyRecipe_Seasoning myRecipe_Seasoning)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,R_id,S_id,Weight")] MyRecipe_Seasoning myRecipe_Seasoning)
         {
             if (id != myRecipe_Seasoning.Id)
             {
@@ -121,7 +121,7 @@ namespace TeamProject1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["I_id"] = new SelectList(_context.Ingredient, "Id", "Id", myRecipe_Seasoning.I_id);
+            ViewData["S_id"] = new SelectList(_context.Ingredient, "Id", "Id", myRecipe_Seasoning.S_id);
             ViewData["R_id"] = new SelectList(_context.MyRecipe, "Id", "Id", myRecipe_Seasoning.R_id);
             return View(myRecipe_Seasoning);
         }
@@ -135,9 +135,9 @@ namespace TeamProject1.Controllers
             }
 
             var myRecipe_Seasoning = await _context.MyRecipe_Seasoning
-                .Include(m => m.Ingredient)
+                .Include(m => m.Seasoning)
                 .Include(m => m.MyRecipe)
-                .SingleOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (myRecipe_Seasoning == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace TeamProject1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var myRecipe_Seasoning = await _context.MyRecipe_Seasoning.SingleOrDefaultAsync(m => m.Id == id);
+            var myRecipe_Seasoning = await _context.MyRecipe_Seasoning.FindAsync(id);
             _context.MyRecipe_Seasoning.Remove(myRecipe_Seasoning);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

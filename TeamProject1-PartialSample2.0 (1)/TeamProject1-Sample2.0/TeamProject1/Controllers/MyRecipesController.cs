@@ -118,7 +118,7 @@ namespace TeamProject1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] MyRecipe myRecipe, [Bind("I_id")] MyRecipe_Ingredient ingredients, [Bind("S_id")] MyRecipe_Seasoning seasonings)
+        public async Task<IActionResult> Create([Bind("Name")] MyRecipe myRecipe)
         {
             if (ModelState.IsValid)
             {

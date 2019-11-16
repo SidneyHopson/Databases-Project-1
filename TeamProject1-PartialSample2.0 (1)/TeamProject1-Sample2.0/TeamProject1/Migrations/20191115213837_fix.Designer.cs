@@ -11,9 +11,10 @@ using TeamProject1.Models;
 namespace TeamProject1.Migrations
 {
     [DbContext(typeof(TeamProject1Context))]
-    partial class TeamProject1ContextModelSnapshot : ModelSnapshot
+    [Migration("20191115213837_fix")]
+    partial class fix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

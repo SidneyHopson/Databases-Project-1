@@ -18,9 +18,12 @@ namespace TeamProject1.Models
         {
             modelBuilder.Entity<TeamProject1.Models.MyRecipe_Ingredient>()
                 .HasIndex(p => new { p.R_id, p.I_id }).IsUnique();
+
+            modelBuilder.Entity<TeamProject1.Models.MyRecipe_Seasoning>()
+                .HasIndex(q => new { q.R_id, q.S_id }).IsUnique();
         }
 
-        public DbSet<TeamProject1.Models.Ingredient> Ingredient { get; set; }
+    public DbSet<TeamProject1.Models.Ingredient> Ingredient { get; set; }
 
         public DbSet<TeamProject1.Models.Meat> Meat { get; set; }
 
