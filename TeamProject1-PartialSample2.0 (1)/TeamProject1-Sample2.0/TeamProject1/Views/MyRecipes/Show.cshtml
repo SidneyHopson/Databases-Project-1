@@ -14,8 +14,9 @@
             var model = @Html.Raw(Json.Serialize(Model));
             var stra = [];
             model.forEach(function (element) {
-                stra.push(element.MyRecipe.Name);
+                stra.push(element.myRecipe.name);
             });
+            console.log(stra);
             $("#tags").autocomplete({
                 source: stra
             });
@@ -31,8 +32,8 @@
 
 <h2>@ViewData["Title"]</h2>
 <form asp-controller="MyRecipes" asp-action="Show">
-    Recipe Name: <input type="text" name="id"/>
-    <input id ="tags" type="submit" />
+    Recipe Name: <input id ="tags" type="text" name="id"/>
+    <input type="submit" />
 </form>
 
 <br />
@@ -113,7 +114,8 @@
                     </tbody>
                 </table>
             }
+            <p>Total Calories: @Html.DisplayFor(modelItem => item.Total_calories)</p>
         </div>
-        <p>Total Calories: @Html.DisplayFor(modelItem => item.Total_calories)</p>
+        
     }
 </div>
